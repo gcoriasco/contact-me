@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 function ContactDisclosureForm() {
-  const [state, handleSubmit] = useForm("YOUR_FORMSPREE_ID");
+  const [state, handleSubmit] = useForm(import.meta.env.VITE_FORMSPREE_ID);
 
   if (state.succeeded) {
     return (

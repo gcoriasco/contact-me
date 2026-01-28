@@ -18,6 +18,8 @@ function ContactDisclosureForm() {
     );
   }
 
+  const formErrors = state.errors?.getFormErrors?.();
+
   return (
     <div className="min-h-screen bg-[#f3f2ef] dark:bg-gray-950 flex items-center justify-center p-4 font-sans transition-colors duration-300">
       <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 rounded-2xl shadow-2xl overflow-hidden">
@@ -38,7 +40,11 @@ function ContactDisclosureForm() {
             <p className="text-sm text-amber-900 dark:text-amber-200 leading-relaxed">
               <span className="font-bold block mb-1 uppercase tracking-wide text-[10px] text-amber-700 dark:text-amber-500">A note to recruiters</span>
               <strong>Dear Recruiter,</strong><br />
-              I apologize for the extra step. Due to a high volume of inquiries unrelated to professional opportunities, I have implemented this form to ensure that genuine career proposals receive the attention they deserve. Thank you for your understanding.
+              I apologize for the extra step. Due to a high volume of <span className="font-semibold text-amber-950 dark:text-amber-100 underline decoration-amber-300 decoration-2 underline-offset-2">
+                spam
+              </span> and inquiries <span className="font-semibold text-amber-950 dark:text-amber-100 underline decoration-amber-300 decoration-2 underline-offset-2">
+                unrelated to professional opportunities
+              </span>, I have implemented this form to ensure that genuine career proposals receive the attention they deserve. Thank you for your understanding.
             </p>
           </div>
         </div>
@@ -95,6 +101,26 @@ function ContactDisclosureForm() {
             </div>
             <ValidationError prefix="Consent" field="gdpr-consent" errors={state.errors} className="text-red-500 text-[10px]" />
           </div>
+
+          {/* ERROR MESSAGE BLOCK */}
+          {formErrors && formErrors.length > 0 && (
+            <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-4 dark:bg-red-900/20">
+              <div className="flex items-center">
+                <svg className="h-5 w-5 text-red-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                </svg>
+                <p className="text-sm text-red-800 dark:text-red-200 font-medium">
+                  Oops! Something went wrong. Please try again later.
+                </p>
+              </div>
+              {/* Lista dettagliata degli errori (opzionale) */}
+              <ul className="mt-2 ml-7 list-disc list-inside text-xs text-red-700 dark:text-red-300">
+                {formErrors.map((error, index) => (
+                  <li key={index}>{error.message}</li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <button type="submit" disabled={state.submitting} className="w-full bg-[#0a66c2] dark:bg-blue-600 hover:bg-[#004182] dark:hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-md active:scale-[0.98] transition-all disabled:opacity-50">
             {state.submitting ? "Processing..." : "Submit Disclosure Request"}

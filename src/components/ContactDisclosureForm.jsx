@@ -20,7 +20,7 @@ function ContactDisclosureForm() {
 
   const errors = [
     ...(state.errors?.getFormErrors?.() || []),
-    ...(state.errors?.getAllFieldErrors?.()?.flatMap?.(([field, errors] )=> errors.map(e => ({message: `[${field}] ${e.message}`}))) || []),
+    ...(state.errors?.getAllFieldErrors?.()?.flatMap?.(([field, errors]) => errors.map(e => ({ message: `[${field}] ${e.message}` }))) || []),
   ];
 
   return (
@@ -52,6 +52,27 @@ function ContactDisclosureForm() {
           </div>
         </div>
 
+        {/* LINK AL PROFILO LINKEDIN - Inserito tra Disclaimer e Form */}
+        <div className="px-8 pt-4 text-left">
+
+          <a
+            href="https://www.linkedin.com/in/giovannicoriasco/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 group inline-flex items-center gap-3 py-2 text-gray-600 dark:text-gray-300 hover:text-[#0a66c2] dark:hover:text-blue-400 transition-all duration-200"
+          >
+            <div className="bg-gray-100 dark:bg-gray-800 p-2 rounded-lg group-hover:bg-blue-50 dark:group-hover:bg-blue-900/30 transition-colors">
+              <svg xmlns="http://www.w3.org" className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </div>
+            <span className="font-semibold text-sm">I'm also on LinkedIn</span>
+            <svg xmlns="http://www.w3.org" className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+
         <div className="p-8 space-y-6 text-left">
 
           {/* INPUTS (con classi dark:) */}
@@ -73,10 +94,25 @@ function ContactDisclosureForm() {
             </div>
           ))}
 
-          {/* MESSAGE */}
+          {/* MESSAGE INPUT (OPTIONAL) */}
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">Brief Message</label>
-            <textarea name="message" rows="3" placeholder="Tell me briefly..." className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-[#0a66c2] dark:focus:ring-blue-500 text-gray-900 dark:text-white outline-none transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500" required></textarea>
+            <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
+              Brief Message <span className="text-gray-400 dark:text-gray-600 font-normal ml-1">(Optional)</span>
+            </label>
+            <div className="relative">
+              <div className="absolute top-3 left-3 pointer-events-none text-gray-400">
+                <svg xmlns="http://www.w3.org" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+              </div>
+              <textarea
+                name="message"
+                rows="3"
+                placeholder="Any additional context..."
+                className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-[#0a66c2] dark:focus:ring-blue-500 text-gray-900 dark:text-white outline-none transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500"
+              /* ATTRIBUTO REQUIRED RIMOSSO */
+              ></textarea>
+            </div>
           </div>
 
           {/* GDPR CONSENT */}

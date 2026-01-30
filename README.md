@@ -1,4 +1,4 @@
-# 🛡️ Contact Disclosure Form
+# Contact Disclosure Form
 
 A professional, secure, and elegant web form designed for LinkedIn networking and recruitment filtering. This project acts as a "digital concierge," ensuring that only genuine career proposals reach your private inbox while filtering out spam.
 
@@ -8,13 +8,13 @@ A professional, secure, and elegant web form designed for LinkedIn networking an
 [![Vercel](https://img.shields.io/badge/vercel-%23000000?logo=vercel)](https://vercel.com)
 [![Formspree](https://img.shields.io/badge/formspree-%23E5122E?logo=formspree)](https://formspree.io/)
 
-## 🎯 The Problem
+## The Problem
 On LinkedIn, professionals are often overwhelmed by:
 - **Unsolicited spam** or sales pitches.
 - **Vague inquiries** lacking professional context.
 - **Data harvesting** bots.
 
-## 🚀 The Solution: Contact Disclosure
+## The Solution: Contact Disclosure
 This form requires recruiters to provide clear context (Company, Job Link, and Professional Email) before accessing direct contact details.
 
 ### Key Features:
@@ -23,13 +23,13 @@ This form requires recruiters to provide clear context (Company, Job Link, and P
 - **GDPR Compliance:** Explicit consent checkbox for professional data processing.
 - **Open Source:** The entire logic is transparent and freely available here.
 
-## 🛠️ Tech Stack
+## Tech Stack
 - **Framework:** [React (Vite)](https://vitejs.dev)
 - **Backend:** [Formspree](https://formspree.io) (Serverless form handling)
 - **Hosting:** [Vercel](https://vercel.com)
 - **Icons:** [Heroicons](https://heroicons.com)
 
-## ⚙️ Setup & Deployment
+## Setup & Deployment
 
 1. **Clone & Install:**
    ```bash

@@ -9,7 +9,7 @@ export default function Footer() {
                         <div className="h-px w-8 bg-gray-200 dark:bg-gray-800"></div>
                     </div>
 
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                    <p className="text-xs text-balance mx-4 text-gray-500 dark:text-gray-400">
                         The source code for this form is freely available{(
                             <>
                                 {(import.meta.env.VITE_SOURCE_REPOSITORY_LABEL && <span> on</span>)}

@@ -34,4 +34,7 @@ This form requires recruiters to provide clear context (Company, Job Link, and P
 1. **Clone & Install:**
    ```bash
    git clone https://github.com/...
+   cd contact-me
    npm install
+   cp .env.example .env
+   # Open the newly created .env file and replace the placeholder values with your own information
